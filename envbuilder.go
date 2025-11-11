@@ -28,10 +28,6 @@ import (
 	"github.com/coder/envbuilder/options"
 	"github.com/go-git/go-billy/v5"
 
-	"github.com/GoogleContainerTools/kaniko/pkg/config"
-	"github.com/GoogleContainerTools/kaniko/pkg/creds"
-	"github.com/GoogleContainerTools/kaniko/pkg/executor"
-	"github.com/GoogleContainerTools/kaniko/pkg/util"
 	"github.com/coder/envbuilder/devcontainer"
 	"github.com/coder/envbuilder/internal/ebutil"
 	"github.com/coder/envbuilder/internal/workingdir"
@@ -47,6 +43,10 @@ import (
 	"github.com/google/go-containerregistry/pkg/v1/remote"
 	"github.com/kballard/go-shellquote"
 	"github.com/mattn/go-isatty"
+	"github.com/osscontainertools/kaniko/pkg/config"
+	"github.com/osscontainertools/kaniko/pkg/creds"
+	"github.com/osscontainertools/kaniko/pkg/executor"
+	"github.com/osscontainertools/kaniko/pkg/util"
 	"github.com/sirupsen/logrus"
 	"github.com/tailscale/hujson"
 	"golang.org/x/xerrors"
@@ -395,7 +395,7 @@ func run(ctx context.Context, opts options.Options, execArgs *execArgsInfo) erro
 
 		// IgnorePaths in the Kaniko opts doesn't properly ignore paths.
 		// So we add them to the default ignore list. See:
-		// https://github.com/GoogleContainerTools/kaniko/blob/63be4990ca5a60bdf06ddc4d10aa4eca0c0bc714/cmd/executor/cmd/root.go#L136
+		// https://github.com/osscontainertools/kaniko/blob/63be4990ca5a60bdf06ddc4d10aa4eca0c0bc714/cmd/executor/cmd/root.go#L136
 		ignorePaths := append([]string{
 			workingDir.Path(),
 			opts.WorkspaceFolder,
@@ -568,7 +568,7 @@ func run(ctx context.Context, opts options.Options, execArgs *execArgsInfo) erro
 					InsecurePull:  opts.Insecure,
 					SkipTLSVerify: opts.Insecure,
 					// Enables registry mirror features in Kaniko, see more in link below
-					// https://github.com/GoogleContainerTools/kaniko?tab=readme-ov-file#flag---registry-mirror
+					// https://github.com/osscontainertools/kaniko?tab=readme-ov-file#flag---registry-mirror
 					// Related to PR #114
 					// https://github.com/coder/envbuilder/pull/114
 					RegistryMirrors: registryMirror,
@@ -1193,7 +1193,7 @@ func RunCacheProbe(ctx context.Context, opts options.Options) (v1.Image, error) 
 
 	// IgnorePaths in the Kaniko opts doesn't properly ignore paths.
 	// So we add them to the default ignore list. See:
-	// https://github.com/GoogleContainerTools/kaniko/blob/63be4990ca5a60bdf06ddc4d10aa4eca0c0bc714/cmd/executor/cmd/root.go#L136
+	// https://github.com/osscontainertools/kaniko/blob/63be4990ca5a60bdf06ddc4d10aa4eca0c0bc714/cmd/executor/cmd/root.go#L136
 	ignorePaths := append([]string{
 		workingDir.Path(),
 		opts.WorkspaceFolder,
@@ -1306,7 +1306,7 @@ func RunCacheProbe(ctx context.Context, opts options.Options) (v1.Image, error) 
 			InsecurePull:  opts.Insecure,
 			SkipTLSVerify: opts.Insecure,
 			// Enables registry mirror features in Kaniko, see more in link below
-			// https://github.com/GoogleContainerTools/kaniko?tab=readme-ov-file#flag---registry-mirror
+			// https://github.com/osscontainertools/kaniko?tab=readme-ov-file#flag---registry-mirror
 			// Related to PR #114
 			// https://github.com/coder/envbuilder/pull/114
 			RegistryMirrors: registryMirror,

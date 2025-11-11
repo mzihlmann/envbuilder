@@ -1,6 +1,6 @@
 # Container Registry Authentication
 
-envbuilder uses Kaniko to build containers. You should [follow their instructions](https://github.com/GoogleContainerTools/kaniko#pushing-to-different-registries) to create an authentication configuration.
+envbuilder uses Kaniko to build containers. You should [follow their instructions](https://github.com/osscontainertools/kaniko#pushing-to-different-registries) to create an authentication configuration.
 
 After you have a configuration that resembles the following:
 

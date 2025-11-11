@@ -10,7 +10,6 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/GoogleContainerTools/kaniko/pkg/creds"
 	"github.com/coder/envbuilder/devcontainer/features"
 	"github.com/go-git/go-billy/v5"
 	"github.com/google/go-containerregistry/pkg/name"
@@ -18,6 +17,7 @@ import (
 	"github.com/moby/buildkit/frontend/dockerfile/instructions"
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
 	"github.com/moby/buildkit/frontend/dockerfile/shell"
+	"github.com/osscontainertools/kaniko/pkg/creds"
 	"github.com/tailscale/hujson"
 )
 

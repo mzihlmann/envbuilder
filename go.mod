@@ -2,16 +2,12 @@ module github.com/coder/envbuilder
 
 go 1.24.6
 
-// There are a few options we need added to Kaniko!
-// See: https://github.com/GoogleContainerTools/kaniko/compare/main...coder:kaniko:main
-replace github.com/GoogleContainerTools/kaniko => github.com/coder/kaniko v0.0.0-20251107135632-b20ff58093d8
-
 // Required to import codersdk due to gvisor dependency.
 replace tailscale.com => github.com/coder/tailscale v1.1.1-0.20240702054557-aa558fbe5374
 
 require (
 	cdr.dev/slog v1.6.2-0.20240126064726-20367d4aede6
-	github.com/GoogleContainerTools/kaniko v1.9.2
+	github.com/osscontainertools/kaniko v1.26.1
 	github.com/breml/rootcerts v0.2.10
 	github.com/chainguard-dev/git-urls v1.0.2
 	github.com/coder/coder/v2 v2.10.1-0.20240704130443-c2d44d16a352
