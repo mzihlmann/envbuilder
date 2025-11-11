@@ -546,11 +546,11 @@ func run(ctx context.Context, opts options.Options, execArgs *execArgsInfo) erro
 				CacheRunLayers:     true,
 				CacheCopyLayers:    true,
 				CompressedCaching:  true,
-				Compression:        config.ZStd,
+				Compression:        config.Gzip,
 				// Maps to "default" level, ~100-300 MB/sec according to
 				// benchmarks in klauspost/compress README
 				// https://github.com/klauspost/compress/blob/67a538e2b4df11f8ec7139388838a13bce84b5d5/zstd/encoder_options.go#L188
-				CompressionLevel: 3,
+				CompressionLevel: compression.Gzip,
 				CacheOptions: config.CacheOptions{
 					CacheTTL: cacheTTL,
 					CacheDir: opts.BaseImageCacheDir,
