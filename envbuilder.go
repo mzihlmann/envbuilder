@@ -545,7 +545,6 @@ func run(ctx context.Context, opts options.Options, execArgs *execArgsInfo) erro
 				NoPush:             !opts.PushImage || len(destinations) == 0,
 				CacheRunLayers:     true,
 				CacheCopyLayers:    true,
-				ForceBuildMetadata: opts.PushImage, // Force layers with no changes to be cached, required for cache probing.
 				CompressedCaching:  true,
 				Compression:        config.ZStd,
 				// Maps to "default" level, ~100-300 MB/sec according to
@@ -1283,7 +1282,6 @@ func RunCacheProbe(ctx context.Context, opts options.Options) (v1.Image, error) 
 		NoPush:             true,
 		CacheRunLayers:     true,
 		CacheCopyLayers:    true,
-		ForceBuildMetadata: true, // Force layers with no changes to be cached, required for cache probing.
 		CompressedCaching:  true,
 		Compression:        config.ZStd,
 		// Maps to "default" level, ~100-300 MB/sec according to
