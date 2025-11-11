@@ -561,7 +561,7 @@ func run(ctx context.Context, opts options.Options, execArgs *execArgsInfo) erro
 				CacheRepo:         opts.CacheRepo,
 				Cache:             opts.CacheRepo != "" || opts.BaseImageCacheDir != "",
 				DockerfilePath:    buildParams.DockerfilePath,
-				DockerfileContent: buildParams.DockerfileContent,
+				// DockerfileContent: buildParams.DockerfileContent,
 				RegistryOptions: config.RegistryOptions{
 					Insecure:      opts.Insecure,
 					InsecurePull:  opts.Insecure,
@@ -1298,7 +1298,7 @@ func RunCacheProbe(ctx context.Context, opts options.Options) (v1.Image, error) 
 		CacheRepo:         opts.CacheRepo,
 		Cache:             opts.CacheRepo != "" || opts.BaseImageCacheDir != "",
 		DockerfilePath:    buildParams.DockerfilePath,
-		DockerfileContent: buildParams.DockerfileContent,
+		// DockerfileContent: buildParams.DockerfileContent,
 		RegistryOptions: config.RegistryOptions{
 			Insecure:      opts.Insecure,
 			InsecurePull:  opts.Insecure,
